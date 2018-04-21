@@ -1,0 +1,10 @@
+{
+  "name": "GiveMeAFxxxName",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "sm1177 <scp1177@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
