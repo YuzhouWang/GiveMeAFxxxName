@@ -1,0 +1,46 @@
+[
+    {
+        "id": 1,
+        "title": "question title",
+        "text": "I AM QUESTIONS 1",
+        "userId": 1,
+        "createdAt": "data string",
+        "updatedAt": "data string",
+        "deletedAt": "data string",
+        "attachments": [],
+        "acceptAnswerId": 1 
+    },
+    {
+        "id": 2,
+        "title": "question title",
+        "text": "I AM QUESTIONS 2",
+        "userId": 2,
+        "createdAt": "data string",
+        "updatedAt": "data string",
+        "deletedAt": "data string",
+        "attachments": [],
+        "acceptAnswerId": 2 
+    },
+    {
+        "id": 3,
+        "title": "question title",
+        "text": "I AM QUESTIONS 3",
+        "userId": 3,
+        "createdAt": "data string",
+        "updatedAt": "data string",
+        "deletedAt": "data string",
+        "attachments": [],
+        "acceptAnswerId": 3 
+    },
+    {
+        "id": 4,
+        "title": "question title",
+        "text": "I AM QUESTIONS 4",
+        "userId": 4,
+        "createdAt": "data string",
+        "updatedAt": "data string",
+        "deletedAt": "data string",
+        "attachments": [],
+        "acceptAnswerId": 4 
+    }
+]
