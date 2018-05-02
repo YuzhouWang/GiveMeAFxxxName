@@ -1,9 +1,14 @@
-var express = require('express');
-var router = express.Router();
+import express from 'express';
+import a from '../app'
+
+const router = express.Router();
+let db = a.db;
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/', (req, res, next) => {
+  //res.render('index', { title: 'Express' });
+  res.sendFile(__dirname + '/index.html');
+  //res.send("Welcome");
 });
 
-module.exports = router;
+export default router;

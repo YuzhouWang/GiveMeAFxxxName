@@ -1,8 +1,9 @@
 import express from 'express';
+import a from '../app'
 import fs from 'fs';
 
 const router = express.Router();
-
+let db = a.db;
 
 /* GET questions listing. */
 router.get('/', (req, res, next) => {
@@ -38,18 +39,49 @@ router.get('/:id', (req, res, next) => {
 });
 
 const getQuestions = () => {
-  return new Promise((res, rej) => {
+  return new Promise((resolve, reject) => {
     fs.readFile("./data/questions.json", (err, data) => {
       if (err) {
         console.log(err)
-        return rej(err)
+        reject(err)
       }
   
       const json = JSON.parse(data)
       //find one question
-      res(json)
+      resolve(json)
     })
   })
 }
 
-module.exports = router;
+router.post('/', (req, res, next) => {
+  db.collection('quora').save(req.body, (err, result) => {
+    if(err)
+      console.log(err)
+      reject(err)
+    
+      console.log('save to database')
+      res.redirect('/')
+  })
+  // createQuestion()
+  // .then(() => {
+  //   res.send('success!')
+  // })
+  // .catch((err) => {
+  //   res.send('fail')
+  // })
+});
+
+// const createQuestion = () => {
+//   return new Promise((resolve, reject) => {
+//     db.collection('quora').save(req.body, (err, result) => {
+//       if(err)
+//         console.log(err)
+//         reject(err)
+      
+//         console.log('save to database')
+//         res.redirect('/')
+//     })
+//   })
+// }
+
+export default router;
