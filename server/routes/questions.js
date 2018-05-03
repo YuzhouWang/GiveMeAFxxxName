@@ -1,55 +1,47 @@
-import express from 'express';
-import fs from 'fs';
+var express = require('express');
+var router = express.Router();
+import Question from '../models/questions.model'
 
-const router = express.Router();
-
-
-/* GET questions listing. */
-router.get('/', (req, res, next) => {
-  //got to model questions, get
-  //DB connect
-  getQuestions()
-  .then((ques) =>{
-    res.send(ques)
-  })
-  .catch((err) =>{
-    res.send("No data")
+/* GET users listing. */
+//Retrieving all questions
+router.get('/', (req, res) => {
+  Question.find()
+  .then(questions => {
+    res.send(questions)
+  }).catch(err => {
+    res.status(500).send({
+      message: err.message || "Some error  occured while retrieving questions"
+    })
   })
 });
 
-router.get('/:id', (req, res, next) => {
-  //got to model questions, get
-  const questionId = req.params.id
-  getQuestions()
-    .then((questions) => {
-      const foundQuestion = questions.find(question => {
-        return question.id == questionId
-      })
-
-      if (foundQuestion) {
-        res.send(foundQuestion)
-      } else {
-        throw new Error("Can't find question by Id")
-      }
+//Creat a new question
+router.post('/', (req, res) => {
+  if(!req.body.title){
+    return res.status(400).send({
+      message: "Question title can not be empty"
     })
-    .catch(err => {
-      res.send("Can't find question by Id")
-    })
-});
+  }
 
-const getQuestions = () => {
-  return new Promise((res, rej) => {
-    fs.readFile("./data/questions.json", (err, data) => {
-      if (err) {
-        console.log(err)
-        return rej(err)
-      }
-  
-      const json = JSON.parse(data)
-      //find one question
-      res(json)
+  console.log(req.body)
+  const question = new Question({
+    title: req.body.title,
+    txt: req.body.txt
+  })
+  console.log(question)
+
+  question.save()
+  .then(data => {
+    res.send(data)
+  }).catch(err => {
+    res.status(500).send({
+      message: err.message || "Some error  occurred while creating a question."
     })
   })
-}
 
-module.exports = router;
+})
+
+//Retrieving a single question
+
+
+module.exports = router
