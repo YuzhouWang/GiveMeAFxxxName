@@ -1,10 +1,12 @@
 import mongoose from 'mongoose'
 
 const AnswerSchema = mongoose.Schema({
-    //id: String,
-    txt: String
+    // aId: String,
+    txt: String,
+    // qId: String,
+    // uId: String
 },{
-    timestamp: true
-})
+    timestamps: true
+});
 
-module.exports = mongoose.model('Answer', AnswerSchema)
+module.exports = mongoose.model('Answer', AnswerSchema);

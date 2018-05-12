@@ -1,11 +1,12 @@
 import mongoose from 'mongoose'
 
 const QuestionSchema = mongoose.Schema({
-    //id: String,
+    // qId: String,
     title: String,
     txt: String
+    // uId: String
 },{
-    timestamp: true
-})
+    timestamps: true
+});
 
-module.exports = mongoose.model('Question', QuestionSchema)
+module.exports = mongoose.model('Question', QuestionSchema);

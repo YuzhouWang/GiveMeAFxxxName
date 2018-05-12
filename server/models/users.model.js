@@ -1,11 +1,11 @@
 import mongoose from 'mongoose'
 
 const UserSchema = mongoose.Schema({
-    //id: String,
+    // uId: String,
     username: String,
     password: String
 },{
-    timestamp: true
-})
+    timestamps: true
+});
 
-module.exports = mongoose.model('User', UserSchema)
+module.exports = mongoose.model('User', UserSchema);
