@@ -1,6 +1,7 @@
-var express = require('express');
-var router = express.Router();
+import express from 'express'
 import Question from '../models/questions.model'
+
+const router = express.Router();
 
 /* GET users listing. */
 //Retrieving all questions
@@ -44,4 +45,4 @@ router.post('/', (req, res) => {
 //Retrieving a single question
 
 
-module.exports = router
+export default router

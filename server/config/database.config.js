@@ -1,3 +1,3 @@
 module.exports = {
-    url: 'link-to-mydb'
+    url: 'mongodb://And7then:777@ds211440.mlab.com:11440/quora'
 }

@@ -8,4 +8,4 @@ const QuestionSchema = mongoose.Schema({
     timestamp: true
 })
 
-module.exports = mongoose.model('Question',QuestionSchema)
+module.exports = mongoose.model('Question', QuestionSchema)
